@@ -1,0 +1,32 @@
+Build a text Categorization application (predicting review rating from review text) using
+linear and non-linear models after vectorising text and attempt to refine it further by
+using lexical as well as distributional semantics.
+Build some text classification model using binary classifier such as
+SVM and a non-linear model using ANN (while trying various optimization options).
+5 cases that you need to deal with:
+(a)vectorised representation of text as features.Limit vocabulary to avoid unnecessary computation. With these vectorised representation of
+text as features, you should do text categorization. Note that we are NOT using semantic
+aspect of text here.
+(b) Try to improve the above method by “EXTRACTING” LESSSR NUMBER OF FEATURES from
+the vectorised representation in previous step using matrix factorization method such as
+SVD. Ensure that you are capturing enough of variances (more than 90% ?). Note that still
+we are NOT really using semantic aspect of text here though we are trying hard to get
+more meaningful features by dimensionality reduction.
+(c) Our assumption is emotion and sentiments have a direct bearing on the star rating. Derive
+features for each review text using Sentiment and Emotion Lexicon. The features are
+[sentiment, anger, fear, anticipation, trust, surprise, sadness, joy, disgust]. The sentiment
+column values can be sum of sentence sentiments for a review (+1, -1, 0 per sentence)and
+you can use textblob api as that is trained on review data. For emotion related columns,
+get the value using NRC Emotion lexicon. With these 9 “derived” features, you should be
+able to predict the rating nicely! We are using lexical semantics here.
+(d) Come up with vectorised representation of every review by using only the emotion
+bearing words (using NRC Emotion lexicon) as we may have a better feature-set this way.
+This is essentially a repeat of the 1 st case and the 3 rd case but enclosing the lexical
+semantics into a vectorised model ( not really distributional semantics)
+(e) Derive the representative vectors for a review by using Word2Vec word-embedding. You
+can create your own Word2Vec distribution but your feature vector for a review should
+be derived from individual vectors representing each content word for that review. So you
+can come up with a single vector for each review as an average or sum of all the word
+vectors of the content words in that particular review. You can even use doc2vec which is
+derived from word2vec. Note that here we are using Distributional Semantics (word
+embedding to be specific) to derive features.
